@@ -47,7 +47,8 @@ var prizeText;
 
 window.onload = function() {
 	// creation of a 458x488 game
-	game = new Phaser.Game(858, 858, Phaser.AUTO, "gameArea");
+	//858, 858
+	game = new Phaser.Game("100%", "100%", Phaser.AUTO, "gameArea");
 	// adding "PlayGame" state
 	game.state.add("PlayGame",playGame);
 	// launching "PlayGame" state
@@ -70,11 +71,17 @@ playGame.prototype = {
 		// giving some color to background
 		game.stage.backgroundColor = "#fff";
 		// adding the wheel in the middle of the canvas
+		//wheel.he
+
 		wheel = game.add.sprite(game.width / 2, game.width / 2, "wheel");
 		// setting wheel registration point in its center
 		wheel.anchor.set(0.5);
+		wheel.width = 380;
+	 wheel.height = 380;
+
 		// adding the pin in the middle of the canvas
 		var pin = game.add.sprite(game.width / 2, game.width / 2, "pin");
+
 		// setting pin registration point in its center
 		pin.anchor.set(0.5);
 		// adding the text field
@@ -119,7 +126,12 @@ playGame.prototype = {
 		canSpin = true;
 		// writing the prize you just won
 		//prizeText.text = slicePrizes[prize];
-		console.log(prize);
+		console.log("AQUI");
+		console.log(wheel);
+		//alert(window.screen.availWidth);
+    //alert(window.screen.availHeight);
+		//console.log(prize);
+		var test = window.screen.availWidth;
 		//document.getElementById('conteudo').innerHTML = 'Qual é o problema/processo a ser trabalhado?</br></br>[A] Testando...</br>[A] Testando...</br>[A] Testando...</br>[A] Testando...';
 		document.getElementById('conteudo').innerHTML = askingArray[1]['ask'];
 		document.getElementById('QA').innerHTML = askingArray[1]['a'];
