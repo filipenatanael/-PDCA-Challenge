@@ -10,9 +10,6 @@ var slices = 4;
 //var slicePrizes = ["A KEY!!!", "50 STARS", "500 STARS", "BAD LUCK!!!", "200 STARS", "100 STARS", "150 STARS", "BAD LUCK!!!"];
 var slicePrizes = ["P","D","C","A"];
 
-
-
-
 // the prize you are about to win
 var prize;
 // text field where to show the prize
@@ -29,7 +26,6 @@ window.onload = function() {
 }
 
 // PLAYGAME STATE
-
 var playGame = function(game){};
 
 playGame.prototype = {
@@ -99,8 +95,6 @@ playGame.prototype = {
 		canSpin = true;
 		// writing the prize you just won
 		//prizeText.text = slicePrizes[prize];
-		console.log("AQUI");
-		console.log(wheel);
 		//alert(window.screen.availWidth);
 		//alert(window.screen.availHeight);
 		console.log(prize);
@@ -127,8 +121,6 @@ playGame.prototype = {
 			document.getElementById('QA').innerHTML = action_array[1]['a'];
 			break;
 		}
-
-
 
 		//document.getElementById('conteudo').innerHTML = askingArray[1]['ask'];
 		//document.getElementById('QA').innerHTML = askingArray[1]['a'];

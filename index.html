@@ -1,23 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 	<style>
-
-	/*
-	.modal-backdrop {
-	background-color: red;
-}
-*/
 
 #div_hover { background-color: #98FB98; }
 
@@ -58,20 +45,17 @@
 	margin: 0px;
 }
 
-
 </style>
-
 
 <script type="text/javascript">
 
 function responder(){
-	//alert("sdasdsad");
 	document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
-	console.log('prize');
-	console.log(prize);
+
 }
 
 </script>
+
 <script src="phaser.min.js"></script>
 <script src = "questions.js"></script>
 <script src = "game.js"></script>
@@ -97,7 +81,6 @@ function responder(){
 
 
 <div align="center" id="gameArea" >
-
 </div>
 
 
@@ -125,22 +108,14 @@ function responder(){
 		--->
 	</div>
 </div>
-
-
 </div>
 
 </div>
-
-
-
-
-
 
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
 	<div class="modal-dialog">
-
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
@@ -153,18 +128,13 @@ function responder(){
 				</div>
 				<p id="QA" onclick="responder()"></p>
 
-
-
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
-
 	</div>
 </div>
-
-
 
 
 </body>
