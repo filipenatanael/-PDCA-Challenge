@@ -10,36 +10,9 @@ var slices = 4;
 //var slicePrizes = ["A KEY!!!", "50 STARS", "500 STARS", "BAD LUCK!!!", "200 STARS", "100 STARS", "150 STARS", "BAD LUCK!!!"];
 var slicePrizes = ["P","D","C","A"];
 
-var askingArray = {
-	'1': {
-		'ask': 'Qual é o problema/processo a ser trabalhado?</br></br>[A] Testando...</br>[A] Testando...</br>[A] Testando...</br>[A] Testando...',
-		'a': 'Testando...',
-		'c': 'Testando...',
-		'c': 'Testando...',
-		'answer': 'Isso mesmo'
-	},
-	'2': {
-		'ask': 'asdasdasdasddasdasdad',
-		'a': 'Testando...',
-		'c': 'Testando...',
-		'c': 'Testando...',
-		'answer': 'Isso mesmo'
-	},
-	'3': {
-		'ask': 'asa123123123123123213dasdasdasddasdasdad',
-		'a': 'Testando...',
-		'c': 'Testando...',
-		'c': 'Testando...',
-		'answer': 'Isso mesmo'
-	},
-	'4': {
-		'ask': 'asdasdasdasddasdas56465465465dad',
-		'a': 'Testando...',
-		'c': 'Testando...',
-		'c': 'Testando...',
-		'answer': 'Isso mesmo'
-	},
-}
+
+
+
 // the prize you are about to win
 var prize;
 // text field where to show the prize
@@ -48,7 +21,7 @@ var prizeText;
 window.onload = function() {
 	// creation of a 458x488 game
 	//858, 858
-	game = new Phaser.Game("100%", "100%", Phaser.AUTO, "gameArea");
+	game = new Phaser.Game(412, 412, Phaser.AUTO, "gameArea");
 	// adding "PlayGame" state
 	game.state.add("PlayGame",playGame);
 	// launching "PlayGame" state
@@ -77,7 +50,7 @@ playGame.prototype = {
 		// setting wheel registration point in its center
 		wheel.anchor.set(0.5);
 		wheel.width = 380;
-	 wheel.height = 380;
+		wheel.height = 380;
 
 		// adding the pin in the middle of the canvas
 		var pin = game.add.sprite(game.width / 2, game.width / 2, "pin");
@@ -129,12 +102,36 @@ playGame.prototype = {
 		console.log("AQUI");
 		console.log(wheel);
 		//alert(window.screen.availWidth);
-    //alert(window.screen.availHeight);
-		//console.log(prize);
-		var test = window.screen.availWidth;
+		//alert(window.screen.availHeight);
+		console.log(prize);
+		//var test1 = window.screen.availWidth;
+		//var test2 = window.screen.availHeight;
+		//document.getElementById('conteudo').innerHTML = test1+" por "+test2;
 		//document.getElementById('conteudo').innerHTML = 'Qual é o problema/processo a ser trabalhado?</br></br>[A] Testando...</br>[A] Testando...</br>[A] Testando...</br>[A] Testando...';
-		document.getElementById('conteudo').innerHTML = askingArray[1]['ask'];
-		document.getElementById('QA').innerHTML = askingArray[1]['a'];
+
+		switch(prize) {
+			case 0:
+			document.getElementById('conteudo').innerHTML = plan_array[1]['ask'];
+			document.getElementById('QA').innerHTML = plan_array[1]['a'];
+			break;
+			case 1:
+			document.getElementById('conteudo').innerHTML = do_array[1]['ask'];
+			document.getElementById('QA').innerHTML = do_array[1]['a'];
+			break;
+			case 2:
+			document.getElementById('conteudo').innerHTML = check_array[1]['ask'];
+			document.getElementById('QA').innerHTML = check_array[1]['a'];
+			break;
+			case 3:
+			document.getElementById('conteudo').innerHTML = action_array[1]['ask'];
+			document.getElementById('QA').innerHTML = action_array[1]['a'];
+			break;
+		}
+
+
+
+		//document.getElementById('conteudo').innerHTML = askingArray[1]['ask'];
+		//document.getElementById('QA').innerHTML = askingArray[1]['a'];
 		setTimeout(function(){$("#myModal").modal();}, 3000);
 
 
