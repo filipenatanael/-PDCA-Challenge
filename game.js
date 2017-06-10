@@ -93,6 +93,8 @@ playGame.prototype = {
 		//alert(window.screen.availHeight);
 		console.log(prize);
 
+    
+
 		switch(prize) {
 			case 0:
 			document.getElementById('conteudo').innerHTML = plan_array[1]['ask'];
