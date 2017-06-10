@@ -93,24 +93,24 @@ playGame.prototype = {
 		//alert(window.screen.availHeight);
 		console.log(prize);
 
-    
+
 
 		switch(prize) {
 			case 0:
 			document.getElementById('conteudo').innerHTML = plan_array[1]['ask'];
-			document.getElementById('QA').innerHTML = plan_array[1]['a'];
+			//document.getElementById('QA').innerHTML = plan_array[1]['a'];
 			break;
 			case 1:
 			document.getElementById('conteudo').innerHTML = do_array[1]['ask'];
-			document.getElementById('QA').innerHTML = do_array[1]['a'];
+			//document.getElementById('QA').innerHTML = do_array[1]['a'];
 			break;
 			case 2:
 			document.getElementById('conteudo').innerHTML = check_array[1]['ask'];
-			document.getElementById('QA').innerHTML = check_array[1]['a'];
+			//document.getElementById('QA').innerHTML = check_array[1]['a'];
 			break;
 			case 3:
 			document.getElementById('conteudo').innerHTML = action_array[1]['ask'];
-			document.getElementById('QA').innerHTML = action_array[1]['a'];
+			//document.getElementById('QA').innerHTML = action_array[1]['a'];
 			break;
 		}
 		setTimeout(function(){$("#myModal").modal();}, 3000);

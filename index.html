@@ -52,19 +52,24 @@
 
 	function responder(){
 		//document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
-		var display = document.getElementById("success").style.display;
+		var display = document.getElementById("hit_answer").style.display;
 
-    // document.getElementById(elemento).classList.add("alert alert-warning");
-    //alert(display);
-  //  display.classList.add("alert alert-warning");
-    if(display == "none")
-    document.getElementById("success").style.display = 'block';
-    else
-    document.getElementById("success").style.display = 'none';
+		// document.getElementById(elemento).classList.add("alert alert-warning");
+		//alert(display);
+		//  display.classList.add("alert alert-warning");
+		if(display == "none")
+		document.getElementById("hit_answer").style.display = 'block';
+		else
+		document.getElementById("hit_answer").style.display = 'none';
 
 	}
 
-	
+	function buttomToHide(){
+		var display = document.getElementById("hit_answer").style.display;
+		document.getElementById("hit_answer").style.display = 'none';
+		var display = document.getElementById("missed_answer").style.display;
+		document.getElementById("missed_answer").style.display = 'none';
+	}
 
 	</script>
 
@@ -138,20 +143,27 @@
 				<div id="conteudo">
 
 				</div>
+				<!--
 				<p id="QA" onclick="responder()"></p>
+				-->
 			</br>
 			<button type="button" onclick="responder()" class="btn btn-success">Corresponde</button>
 			<button type="button" class="btn btn-danger">Não Corresponde</button>
-      </br></br>
-			<div class="alert alert-danger"  id="success" style="display:none;">
-				<strong>Errou!</strong> Você errou a resposta não corresponde.
-			</div>
+
+		</br></br>
+		<div class="alert alert-danger"  id="hit_answer" style="display:none;">
+			<strong>Errou!</strong> Você errou a resposta não corresponde.
 		</div>
 
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+		<div class="alert alert-danger"  id="missed_answer" style="display:none;">
+			<strong>Errou!</strong> Você errou a resposta não corresponde.
 		</div>
+
 	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal" onclick="buttomToHide()">Fechar</button>
+	</div>
+</div>
 </div>
 </div>
 
