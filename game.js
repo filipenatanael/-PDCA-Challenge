@@ -27,7 +27,7 @@ playGame.prototype = {
 	},
 	//funtion to be executed when the state is created
 	create: function(){
-		game.stage.backgroundColor = "#fff";
+		game.stage.backgroundColor = "#0000";
 		wheel = game.add.sprite(game.width / 2, game.width / 2, "wheel");
 		wheel.anchor.set(0.5);
 
