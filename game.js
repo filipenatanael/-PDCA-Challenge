@@ -6,10 +6,14 @@ var slicePrizes = ["P","D","C","A"];
 var prize;
 var prizeText;
 var randomPosition;
+var v_width = window.screen.availWidth;
+var v_height = window.screen.availHeight;
 
 window.onload = function() {
 	// creation of a 458x488 game
-	game = new Phaser.Game(412, 412, Phaser.AUTO, "gameArea");
+	//var screen_adjustment = v_width * 20 / 100;
+
+	game = new Phaser.Game(v_width, v_width, Phaser.AUTO, "gameArea");
 	game.state.add("PlayGame",playGame);
 	game.state.start("PlayGame");
 }
@@ -27,8 +31,8 @@ playGame.prototype = {
 		wheel = game.add.sprite(game.width / 2, game.width / 2, "wheel");
 		wheel.anchor.set(0.5);
 
-		wheel.width = 380;
-		wheel.height = 380;
+		wheel.width = 300;
+		wheel.height = 300;
 
 		var pin = game.add.sprite(game.width / 2, game.width / 2, "pin");
 		pin.anchor.set(0.5);
@@ -54,12 +58,12 @@ playGame.prototype = {
 	// function to assign the prize
 	winPrize(){
 		canSpin = true;
-		//alert(window.screen.availWidth);
+		//alert(window.screen.availWidth+"x"+window.screen.availHeight);
 		//alert(window.screen.availHeight);
 	 randomPosition = getRandomInt();
    document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
-
-		setTimeout(function(){$("#myModal").modal();}, 3000);
+   Enable_Button();
+	 setTimeout(function(){$("#myModal").modal();}, 3000);
 
 
 	}

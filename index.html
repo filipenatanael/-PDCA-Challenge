@@ -58,22 +58,48 @@
 		return position;
 	}
 
-	function responder(){
-		//document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
-		var display = document.getElementById("hit_answer").style.display;
-		console.log("slicePrizes[prize]"+slicePrizes[prize]+" // questions_array[randomPosition]['answer'] "+questions_array[randomPosition]['answer']);
-		if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
-			document.getElementById("hit_answer").style.display = 'block';
-		}else{
-			document.getElementById("missed_answer").style.display = 'block';
+	function responder(event){
+		Disable_Button();
+
+		switch(event) {
+			case 1:
+			if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
+				document.getElementById("hit_answer").style.display = 'block';
+			}else{
+				document.getElementById("missed_answer").style.display = 'block';
+			}
+			break;
+			case 2:
+			if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
+				document.getElementById("missed_answer").style.display = 'block';
+			}else{
+				document.getElementById("hit_answer").style.display = 'block';
+			}
+			break;
+
 		}
+
+		//document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
+		//var display = document.getElementById("hit_answer").style.display;
+		//console.log("slicePrizes[prize]"+slicePrizes[prize]+" // questions_array[randomPosition]['answer'] "+questions_array[randomPosition]['answer']);
+
+	}
+
+	function Disable_Button(){
+		document.getElementById('btn_yes').disabled=true;
+		document.getElementById('btn_no').disabled=true;
+	}
+
+	function Enable_Button(){
+		document.getElementById('btn_yes').disabled=false;
+		document.getElementById('btn_no').disabled=false;
 	}
 
 
 	function buttomToHide(){
-		var display = document.getElementById("hit_answer").style.display;
+		//var display = document.getElementById("hit_answer").style.display;
 		document.getElementById("hit_answer").style.display = 'none';
-		var display = document.getElementById("missed_answer").style.display;
+		//var display = document.getElementById("missed_answer").style.display;
 		document.getElementById("missed_answer").style.display = 'none';
 	}
 
@@ -135,8 +161,8 @@
 				<p id="QA" onclick="responder()"></p>
 			-->
 		</br>
-		<button type="button" onclick="responder()" class="btn btn-success">Corresponde</button>
-		<button type="button" class="btn btn-danger">Não Corresponde</button>
+		<button id="btn_yes" type="button" onclick="responder(1)" class="btn btn-success">Corresponde</button>
+		<button id="btn_no" type="button" onclick="responder(2)" class="btn btn-danger">Não Corresponde</button>
 
 	</br></br>
 	<div class="alert alert-success"  id="hit_answer" style="display:none;">
