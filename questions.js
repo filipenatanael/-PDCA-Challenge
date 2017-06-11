@@ -1,9 +1,35 @@
 //--- Questions about PLAN ---
+var questions_array = {
+  '1': {
+    'question': '[P]Um projeto bem elaborado é primordial para o ciclo PDCA, pois impede falhas futuras e gera um enorme ganho de tempo.',
+    'answer': 'P',
+    'status': '0'
+  },
+  '2': {
+    'question': '[D]Paute o _______________ de acordo com a missão, visão e os valores da empresa, estabelecendo metas e objetivos e definindo o melhor caminho para atingi-los.',
+    'answer': 'D',
+    'status': '0'
+  },
+  '3': {
+    'question': '[C]Nessa etapa o objetivo é focar na parte estratégica do ciclo, ou seja, no levantamento e análise das informações',
+    'answer': 'C',
+    'status': '0'
+  },
+  '4': {
+    'question': '[A]Após fazer um planejamento cuidadoso, coloque-o em prática e à risca, ou seja, procure não queimar etapas tampouco improvisar, para não comprometer todo o ciclo PDCA..',
+    'answer': 'A',
+    'status': '0'
+  },
+}
+
+
+
+//--- Questions about PLAN ---
 var plan_array = {
   '1': {
     'ask': 'Um projeto bem elaborado é primordial para o ciclo PDCA, pois impede falhas futuras e gera um enorme ganho de tempo.',
     'a': 'Testando...',
-    'answer': 'Isso mesmo'
+    'answer': 'P'
   },
   '2': {
     'ask': 'Paute o _______________ de acordo com a missão, visão e os valores da empresa, estabelecendo metas e objetivos e definindo o melhor caminho para atingi-los.',

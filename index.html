@@ -50,6 +50,14 @@
 
 	<script type="text/javascript">
 
+	function getRandomInt() {
+	 do{
+		 //var position =  Math.floor(Math.random() * (max_questions - min_questions)) + min_questions;
+		 var position =  Math.floor(Math.random() * (5 - 1)) + 1;
+	 }while(questions_array[position]['status'] == 1);
+	 return position;
+	}
+
 	function responder(){
 		//document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
 		var display = document.getElementById("hit_answer").style.display;
@@ -57,12 +65,23 @@
 		// document.getElementById(elemento).classList.add("alert alert-warning");
 		//alert(display);
 		//  display.classList.add("alert alert-warning");
+    /*
 		if(display == "none")
 		document.getElementById("hit_answer").style.display = 'block';
 		else
 		document.getElementById("hit_answer").style.display = 'none';
+    */
+    console.log("slicePrizes[prize]"+slicePrizes[prize]+" // questions_array[randomPosition]['answer'] "+questions_array[randomPosition]['answer']);
+    if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
+			document.getElementById("hit_answer").style.display = 'block';
+		}else{
+			document.getElementById("missed_answer").style.display = 'block';
+		}
+
+
 
 	}
+
 
 	function buttomToHide(){
 		var display = document.getElementById("hit_answer").style.display;
@@ -79,23 +98,6 @@
 
 </head>
 <body>
-
-	<!--
-	<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-	<div class="navbar-header">
-	<a class="navbar-brand" href="#">WebSiteName</a>
-</div>
-<ul class="nav navbar-nav">
-<li class="active"><a href="#">Home</a></li>
-<li><a  id="acertos">Acertos: </a></li>
-<li><a href="#">Erros</a></li>
-</ul>
-</div>
-</nav>
---->
-
-
 
 <div align="center" id="gameArea" >
 </div>
@@ -145,24 +147,24 @@
 				</div>
 				<!--
 				<p id="QA" onclick="responder()"></p>
-				-->
-			</br>
-			<button type="button" onclick="responder()" class="btn btn-success">Corresponde</button>
-			<button type="button" class="btn btn-danger">Não Corresponde</button>
+			-->
+		</br>
+		<button type="button" onclick="responder()" class="btn btn-success">Corresponde</button>
+		<button type="button" class="btn btn-danger">Não Corresponde</button>
 
-		</br></br>
-		<div class="alert alert-danger"  id="hit_answer" style="display:none;">
-			<strong>Errou!</strong> Você errou a resposta não corresponde.
-		</div>
-
-		<div class="alert alert-danger"  id="missed_answer" style="display:none;">
-			<strong>Errou!</strong> Você errou a resposta não corresponde.
-		</div>
-
+	</br></br>
+	<div class="alert alert-success"  id="hit_answer" style="display:none;">
+		<strong>Você acertou!</strong>  A resposta correspondem.
 	</div>
-	<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal" onclick="buttomToHide()">Fechar</button>
+
+	<div class="alert alert-danger"  id="missed_answer" style="display:none;">
+		<strong>Você Errou!</strong> A resposta não corresponde.
 	</div>
+
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal" onclick="buttomToHide()">Fechar</button>
+</div>
 </div>
 </div>
 </div>

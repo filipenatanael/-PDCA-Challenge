@@ -13,6 +13,8 @@ var prize;
 // text field where to show the prize
 var prizeText;
 
+var randomPosition;
+
 window.onload = function() {
 	// creation of a 458x488 game
 	game = new Phaser.Game(412, 412, Phaser.AUTO, "gameArea");
@@ -94,8 +96,12 @@ playGame.prototype = {
 		console.log(prize);
 
 
+	 //var randomPosition = getRandomInt();
+	 randomPosition = getRandomInt();
+   document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 
-		switch(prize) {
+   /*
+		switch(prize){
 			case 0:
 			document.getElementById('conteudo').innerHTML = plan_array[1]['ask'];
 			//document.getElementById('QA').innerHTML = plan_array[1]['a'];
@@ -113,6 +119,8 @@ playGame.prototype = {
 			//document.getElementById('QA').innerHTML = action_array[1]['a'];
 			break;
 		}
+    */
+
 		setTimeout(function(){$("#myModal").modal();}, 3000);
 
 
