@@ -10,6 +10,8 @@ var v_width = window.screen.availWidth;
 var v_height = window.screen.availHeight;
 
 function startGame() {
+
+	document.getElementById("players_progress").style.display = "block";
 	document.getElementById("loader").style.display = "none";
 	Players_Modal();
 	// creation of a 458x488 game
