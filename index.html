@@ -48,6 +48,51 @@
 
 
 
+	#loader {
+	  position: absolute;
+	  left: 50%;
+	  top: 50%;
+	  z-index: 1;
+	  width: 150px;
+	  height: 150px;
+	  margin: -75px 0 0 -75px;
+	  border: 16px solid #f3f3f3;
+	  border-radius: 50%;
+	  border-top: 16px solid #3498db;
+	  width: 120px;
+	  height: 120px;
+	  -webkit-animation: spin 2s linear infinite;
+	  animation: spin 2s linear infinite;
+	}
+
+	@-webkit-keyframes spin {
+	  0% { -webkit-transform: rotate(0deg); }
+	  100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+
+	/* Add animation to "page content" */
+	.animate-bottom {
+	  position: relative;
+	  -webkit-animation-name: animatebottom;
+	  -webkit-animation-duration: 1s;
+	  animation-name: animatebottom;
+	  animation-duration: 1s
+	}
+
+	@-webkit-keyframes animatebottom {
+	  from { bottom:-100px; opacity:0 }
+	  to { bottom:0px; opacity:1 }
+	}
+
+	@keyframes animatebottom {
+	  from{ bottom:-100px; opacity:0 }
+	  to{ bottom:0; opacity:1 }
+	}
 
 
 
@@ -66,7 +111,8 @@
 	<script type="text/javascript">
 	var player1;
 	var player2;
-	var player3;
+	//var player3;
+	var rounds_amount;
 
 	//---- Function Players Modal ----
 	function Players_Modal(){
@@ -79,11 +125,15 @@
 		document.getElementById("player1").innerHTML = player1.value;
 		player2 = document.getElementById("input_player2");
 		document.getElementById("player2").innerHTML = player2.value;
+    rounds_amount = document.getElementById("select_rounds");
+
+
 		//player3 = document.getElementById("input_player3");
 		//document.getElementById("player3").innerHTML = player3.value;
 		if(player1.value.length != 0 || player2.value.length != 0){
 			//$('#PlayersModal').modal('hide');
-			
+			alert(rounds_amount.value);
+
 		}
 	}
 
@@ -150,13 +200,15 @@
 
 </head>
 <body>
+
+	<div id="loader"></div>
+
 	<h1 align="center"><var>PDCA</var></h1>
 
 	<div align="center" id="gameArea" >
 	</div>
 
 	<div class="container">
-
 
 		<div class="row">
 		</br>
@@ -319,7 +371,6 @@ aria-valuemin="0" aria-valuemax="100" style="width: 15%">
 
 <!-- Modal of Questions-->
 <div class="modal fade" id="PlayersModal" role="dialog">
-</br>
 <div class="modal-dialog">
 	<!-- Modal content-->
 	<div class="modal-content">
@@ -329,7 +380,6 @@ aria-valuemin="0" aria-valuemax="100" style="width: 15%">
 		</div>
 		<div class="modal-body">
 			<img src="pdcalogo.jpg" alt="Smiley face" height="150" width="100%">
-			<h4></h4>
 			<form>
 				<div class="form-group">
 					<label for="usr">Jogador 1:</label>
@@ -348,7 +398,7 @@ aria-valuemin="0" aria-valuemax="100" style="width: 15%">
 		-->
 		<div class="form-group">
 			<label for="sel1">Qt. Rodadas</label>
-			<select class="form-control" id="sel1">
+			<select class="form-control" id="select_rounds">
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>

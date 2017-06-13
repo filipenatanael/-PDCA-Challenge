@@ -9,14 +9,19 @@ var randomPosition;
 var v_width = window.screen.availWidth;
 var v_height = window.screen.availHeight;
 
-window.onload = function() {
+function startGame() {
+	document.getElementById("loader").style.display = "none";
 	Players_Modal();
 	// creation of a 458x488 game
 	//var screen_adjustment = v_width * 20 / 100;
-
 	game = new Phaser.Game(v_width, v_width, Phaser.AUTO, "gameArea");
 	game.state.add("PlayGame",playGame);
 	game.state.start("PlayGame");
+}
+
+window.onload = function() {
+	var myVar;
+	myVar = setTimeout(startGame, 5000);
 }
 
 //PLAYGAME
@@ -61,10 +66,10 @@ playGame.prototype = {
 		canSpin = true;
 		//alert(window.screen.availWidth+"x"+window.screen.availHeight);
 		//alert(window.screen.availHeight);
-	 randomPosition = getRandomInt();
-   document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
-   Enable_Button();
-	 setTimeout(function(){$("#myModal").modal();}, 3000);
+		randomPosition = getRandomInt();
+		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
+		Enable_Button();
+		setTimeout(function(){$("#myModal").modal();}, 3000);
 
 
 	}
