@@ -10,6 +10,7 @@ var v_width = window.screen.availWidth;
 var v_height = window.screen.availHeight;
 
 window.onload = function() {
+	setPlayers();
 	// creation of a 458x488 game
 	//var screen_adjustment = v_width * 20 / 100;
 
