@@ -15,7 +15,6 @@ function startGame() {
 	document.getElementById("loader").style.display = "none";
 	Players_Modal();
 	// creation of a 458x488 game
-	//var screen_adjustment = v_width * 20 / 100;
 	game = new Phaser.Game(v_width, v_width, Phaser.AUTO, "gameArea");
 	game.state.add("PlayGame",playGame);
 	game.state.start("PlayGame");
@@ -66,13 +65,11 @@ playGame.prototype = {
 	// function to assign the prize
 	winPrize(){
 		canSpin = true;
-		//alert(window.screen.availWidth+"x"+window.screen.availHeight);
-		//alert(window.screen.availHeight);
 		randomPosition = getRandomInt();
 		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 		Enable_Button();
 		setTimeout(function(){$("#myModal").modal();}, 3000);
 
-
 	}
+	
 }
