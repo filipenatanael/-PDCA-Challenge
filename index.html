@@ -112,16 +112,16 @@
 	//var player1;
 	//var player2;
 	//var player3;
-
+  var plays = 0;
 
 	var player1 = {
 		'nickname': '',
-		'points': ''
+		'points': '0'
 	};
 
 	var player2 = {
 		'nickname': '',
-		'points': ''
+		'points': '0'
 	};
 
 	var rounds_amount;
@@ -167,6 +167,7 @@
 			case 1:
 			if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
 				document.getElementById("hit_answer").style.display = 'block';
+				AssignPoints();
 			}else{
 				document.getElementById("missed_answer").style.display = 'block';
 			}
@@ -176,16 +177,50 @@
 				document.getElementById("missed_answer").style.display = 'block';
 			}else{
 				document.getElementById("hit_answer").style.display = 'block';
+				AssignPoints();
 			}
 			break;
 
 		}
+
+		if(plays%2==0){
+			console.log("player 1");
+		}else{
+			console.log("player 2");
+		}
+
+		plays = plays + 1;
 
 		//document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
 		//var display = document.getElementById("hit_answer").style.display;
 		//console.log("slicePrizes[prize]"+slicePrizes[prize]+" // questions_array[randomPosition]['answer'] "+questions_array[randomPosition]['answer']);
 
 	}
+
+	function AssignPoints(){
+	  var turn = plays%2;
+
+		switch(turn) {
+			case 0:
+			//Case to player 1
+			player1['points'] = player1['points'] + 1;
+			break;
+			case 1:
+			//Case to player 2
+			player2['points'] = player2['points'] + 1;
+			break;
+		}
+
+
+
+	}
+
+
+
+
+
+
+
 
 	function Disable_Button(){
 		document.getElementById('btn_yes').disabled=true;
