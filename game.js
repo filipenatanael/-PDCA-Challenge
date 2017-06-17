@@ -9,9 +9,10 @@ var randomPosition;
 var v_width = window.screen.availWidth;
 var v_height = window.screen.availHeight;
 
-function startGame() {
+function newGame() {
 
 	document.getElementById("players_progress").style.display = "block";
+	document.getElementById("pdca_logo").style.display = "block";
 	document.getElementById("loader").style.display = "none";
 	Players_Modal();
 	// creation of a 458x488 game
@@ -22,7 +23,7 @@ function startGame() {
 
 window.onload = function() {
 	var myVar;
-	myVar = setTimeout(startGame, 1000);
+	myVar = setTimeout(newGame, 1000);
 }
 
 //PLAYGAME
@@ -66,19 +67,19 @@ playGame.prototype = {
 	winPrize(){
 		canSpin = true;
 		randomPosition = getRandomInt();
-
+        var isPlayinig = getPlayer();
 				switch(slicePrizes[prize]) {
 					case 'P':
-					document.getElementById("where_stopped").innerHTML = "Plan";
+					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Plan";
 					break;
 					case 'D':
-					document.getElementById("where_stopped").innerHTML = "Do";
+					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Do";
 					break;
 					case 'C':
-					document.getElementById("where_stopped").innerHTML = "Check";
+					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Check";
 					break;
 					case 'A':
-					document.getElementById("where_stopped").innerHTML = "Action";
+					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Action";
 					break;
 				}
 
