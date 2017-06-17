@@ -22,7 +22,7 @@ function startGame() {
 
 window.onload = function() {
 	var myVar;
-	myVar = setTimeout(startGame, 5000);
+	myVar = setTimeout(startGame, 1000);
 }
 
 //PLAYGAME
@@ -68,8 +68,8 @@ playGame.prototype = {
 		randomPosition = getRandomInt();
 		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 		Enable_Button();
-		setTimeout(function(){$("#myModal").modal();}, 3000);
+		setTimeout(function(){$("#myModal").modal();}, 1000);
 
 	}
-	
+
 }
