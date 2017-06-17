@@ -193,11 +193,7 @@
 
 		console.log("PLAYS");
 		plays = plays + 1;
-		//console.log(plays);
 
-		//document.getElementById('acertos').innerHTML = 'Acertos :'+'20';
-		//var display = document.getElementById("hit_answer").style.display;
-		//console.log("slicePrizes[prize]"+slicePrizes[prize]+" // questions_array[randomPosition]['answer'] "+questions_array[randomPosition]['answer']);
 
 	}
 
@@ -228,7 +224,12 @@
 			case 1:
 			//Case to player 2
 			player2['points'] = parseInt(player2['points']) + 10;
-			document.getElementById("progress_p2").style.width = player2['points'] + "%";
+			if(player2['points'] == 20){
+				ResetGame(player2);
+			}else{
+				document.getElementById("progress_p2").style.width = player2['points'] + "%";
+			}
+
 			break;
 		}
 
@@ -239,13 +240,15 @@
 	//Atrubuit ganhador e resetar game
 	function ResetGame(player){
 		$('#myModal').modal('hide');
-		//setTimeout(startGame, 100);
-
-		document.getElementById("ganhador").innerHTML =  player['nickname'];
+		document.getElementById("Winner").innerHTML =  player['nickname'];
     $("#WinGameModal").modal({backdrop: "static"});
+
+		plays = 0;
+		player1['nickname'] = '';
+		player1['points'] = '';
+		player2['nickname'] = '';
+		player2['points'] = '';
 	}
-
-
 
 
 
@@ -334,7 +337,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Questions!!</h4>
+				<h4 class="modal-title" id="where_stopped">Questions!!</h4>
 			</div>
 			<div class="modal-body" id="div_hover">
 				<div id="conteudo">
@@ -430,7 +433,7 @@
 				<h4 class="modal-title">PDCA</h4>
 			</div>
 			<div class="modal-body">
-       <span id="ganhador"></span>
+       <span id="Winner"></span>
 			</div>
 		</br>
 	</div>

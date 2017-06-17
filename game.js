@@ -66,10 +66,27 @@ playGame.prototype = {
 	winPrize(){
 		canSpin = true;
 		randomPosition = getRandomInt();
+
+				switch(slicePrizes[prize]) {
+					case 'P':
+					document.getElementById("where_stopped").innerHTML = "Plan";
+					break;
+					case 'D':
+					document.getElementById("where_stopped").innerHTML = "Do";
+					break;
+					case 'C':
+					document.getElementById("where_stopped").innerHTML = "Check";
+					break;
+					case 'A':
+					document.getElementById("where_stopped").innerHTML = "Action";
+					break;
+				}
+
 		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 		Enable_Button();
 		setTimeout(function(){$("#myModal").modal();}, 1000);
 
 	}
+
 
 }
