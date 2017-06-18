@@ -9,8 +9,144 @@ var randomPosition;
 var v_width = window.screen.availWidth;
 var v_height = window.screen.availHeight;
 
-function newGame() {
+var plays = 0;
+var player1 = {
+	'nickname': '',
+	'points': '0'
+};
+var player2 = {
+	'nickname': '',
+	'points': '0'
+};
+var rounds_amount = 20;
 
+//---- Function Players Modal ----
+function Players_Modal(){
+	$("#PlayersModal").modal({backdrop: "static"});
+}
+
+function setPlayers(){
+	//document.getElementById("input_player1");
+	player1['nickname'] = document.getElementById("input_player1").value;
+	document.getElementById("span_player1").innerHTML = player1['nickname'];
+	player2['nickname'] = document.getElementById("input_player2").value;
+	document.getElementById("span_player2").innerHTML = player2['nickname'];
+
+	AUX_rounds_amount = document.getElementById("select_rounds");
+
+	if(player1['nickname'] != 0 || player2['nickname'] != 0){
+		$('#PlayersModal').modal('hide');
+
+	}
+}
+
+//------------------------------------------------------------------------
+
+function getRandomInt() {
+	do{
+		var position =  Math.floor(Math.random() * (5 - 1)) + 1;
+	}while(questions_array[position]['status'] == 1);
+	return position;
+}
+
+function responder(event){
+	Disable_Button();
+	switch(event) {
+		case 1:
+		if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
+			document.getElementById("hit_answer").style.display = 'block';
+			AssignPoints();
+		}else{
+			document.getElementById("missed_answer").style.display = 'block';
+		}
+		break;
+		case 2:
+		if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
+			document.getElementById("missed_answer").style.display = 'block';
+		}else{
+			document.getElementById("hit_answer").style.display = 'block';
+			AssignPoints();
+		}
+		break;
+	}
+	//Proximo jogador
+	plays = plays + 1;
+}
+
+//------------------------------------------------------------------------
+function getPlayer(){
+	if(plays%2==0){
+		return player1;
+	}else{
+		return player2;
+	}
+}
+//------------------------------------------------------------------------
+
+//Atrubuir pontos ao jogadores
+function AssignPoints(){
+	var turn = plays%2;
+	console.log("TURN"+turn);
+	switch(turn) {
+		case 0:
+		//Case to player 1
+		player1['points'] = parseInt(player1['points']) + 10;
+		if(player1['points'] == rounds_amount){
+			document.getElementById("progress_p1").style.width = player1['points'] + "%";
+			ResetGame(player1);
+		}else{
+			document.getElementById("progress_p1").style.width = player1['points'] + "%";
+		}
+		break;
+		case 1:
+		//Case to player 2
+		player2['points'] = parseInt(player2['points']) + 10;
+		if(player2['points'] == rounds_amount){
+			document.getElementById("progress_p2").style.width = player2['points'] + "%";
+			ResetGame(player2);
+		}else{
+			document.getElementById("progress_p2").style.width = player2['points'] + "%";
+		}
+
+		break;
+	}
+
+}
+//------------------------------------------------------------------------
+
+//Atrubuit ganhador e resetar game
+function ResetGame(player){
+	$('#myModal').modal('hide');
+	document.getElementById("Winner").innerHTML =  player['nickname'];
+	$("#WinGameModal").modal({backdrop: "static"});
+
+	plays = 0;
+	player1['nickname'] = '';
+	player1['points'] = '';
+	player2['nickname'] = '';
+	player2['points'] = '';
+}
+
+
+function Disable_Button(){
+	document.getElementById('btn_yes').disabled=true;
+	document.getElementById('btn_no').disabled=true;
+}
+
+function Enable_Button(){
+	document.getElementById('btn_yes').disabled=false;
+	document.getElementById('btn_no').disabled=false;
+}
+
+function buttomToHide(){
+	document.getElementById("hit_answer").style.display = 'none';
+	document.getElementById("missed_answer").style.display = 'none';
+}
+
+//-------------------------------------------------------------------------
+//--------------------------------------------------------------------------
+
+function newGame() {
 	document.getElementById("players_progress").style.display = "block";
 	document.getElementById("pdca_logo").style.display = "block";
 	document.getElementById("loader").style.display = "none";
@@ -67,21 +203,21 @@ playGame.prototype = {
 	winPrize(){
 		canSpin = true;
 		randomPosition = getRandomInt();
-        var isPlayinig = getPlayer();
-				switch(slicePrizes[prize]) {
-					case 'P':
-					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Plan";
-					break;
-					case 'D':
-					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Do";
-					break;
-					case 'C':
-					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Check";
-					break;
-					case 'A':
-					document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Action";
-					break;
-				}
+		var isPlayinig = getPlayer();
+		switch(slicePrizes[prize]) {
+			case 'P':
+			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Plan";
+			break;
+			case 'D':
+			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Do";
+			break;
+			case 'C':
+			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Check";
+			break;
+			case 'A':
+			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Action";
+			break;
+		}
 
 		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 		Enable_Button();
