@@ -18,8 +18,10 @@ var player2 = {
 	'nickname': '',
 	'points': '0'
 };
-var rounds_amount = 20;
 
+var max_points = 100;
+var max_questions;
+//------------------------------------------------------------------------
 //---- Function Players Modal ----
 function Players_Modal(){
 	$("#PlayersModal").modal({backdrop: "static"});
@@ -32,7 +34,7 @@ function setPlayers(){
 	player2['nickname'] = document.getElementById("input_player2").value;
 	document.getElementById("span_player2").innerHTML = player2['nickname'];
 
-	AUX_rounds_amount = document.getElementById("select_rounds");
+	max_questions = document.getElementById("select_rounds").value;
 
 	if(player1['nickname'] != 0 || player2['nickname'] != 0){
 		$('#PlayersModal').modal('hide');
@@ -86,25 +88,29 @@ function getPlayer(){
 //Atrubuir pontos ao jogadores
 function AssignPoints(){
 	var turn = plays%2;
-	console.log("TURN"+turn);
 	switch(turn) {
 		case 0:
 		//Case to player 1
-		player1['points'] = parseInt(player1['points']) + 10;
-		if(player1['points'] == rounds_amount){
+		//player1['points'] = parseInt(player1['points']) + 10;
+		player1['points'] = parseInt(player1['points']) + (max_points/max_questions);
+		if(player1['points'] == max_points){
+			document.getElementById("span_progress_p1").innerHTML =  player1['points'] + "%";
 			document.getElementById("progress_p1").style.width = player1['points'] + "%";
 			ResetGame(player1);
 		}else{
+			document.getElementById("span_progress_p1").innerHTML =  player1['points'] + "%";
 			document.getElementById("progress_p1").style.width = player1['points'] + "%";
 		}
 		break;
 		case 1:
 		//Case to player 2
-		player2['points'] = parseInt(player2['points']) + 10;
-		if(player2['points'] == rounds_amount){
+		player2['points'] = parseInt(player2['points']) + (max_points/max_questions);
+		if(player2['points'] == max_points){
+			document.getElementById("span_progress_p2").innerHTML =  player2['points'] + "%";
 			document.getElementById("progress_p2").style.width = player2['points'] + "%";
 			ResetGame(player2);
 		}else{
+			document.getElementById("span_progress_p2").innerHTML =  player2['points'] + "%";
 			document.getElementById("progress_p2").style.width = player2['points'] + "%";
 		}
 
