@@ -57,6 +57,7 @@ function responder(event){
 		case 1:
 		if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
 			document.getElementById("hit_answer").style.display = 'block';
+			questions_array[randomPosition]['status'] = '1';
 			AssignPoints();
 		}else{
 			document.getElementById("missed_answer").style.display = 'block';
@@ -67,6 +68,7 @@ function responder(event){
 			document.getElementById("missed_answer").style.display = 'block';
 		}else{
 			document.getElementById("hit_answer").style.display = 'block';
+			questions_array[randomPosition]['status'] = '1';
 			AssignPoints();
 		}
 		break;
@@ -212,16 +214,16 @@ playGame.prototype = {
 		var isPlayinig = getPlayer();
 		switch(slicePrizes[prize]) {
 			case 'P':
-			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Plan";
+			document.getElementById("where_stopped").innerHTML = "[ "+isPlayinig['nickname']+" ] Plan";
 			break;
 			case 'D':
-			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Do";
+			document.getElementById("where_stopped").innerHTML = "[ "+isPlayinig['nickname']+" ] Do";
 			break;
 			case 'C':
-			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Check";
+			document.getElementById("where_stopped").innerHTML = "[ "+isPlayinig['nickname']+" ] Check";
 			break;
 			case 'A':
-			document.getElementById("where_stopped").innerHTML = "["+isPlayinig['nickname']+"] Action";
+			document.getElementById("where_stopped").innerHTML = "[ "+isPlayinig['nickname']+" ] Action";
 			break;
 		}
 
