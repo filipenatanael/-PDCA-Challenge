@@ -46,7 +46,7 @@ function setPlayers(){
 
 function getRandomInt() {
 	do{
-		var position =  Math.floor(Math.random() * (5 - 1)) + 1;
+		var position =  Math.floor(Math.random() * (48 - 1)) + 1;
 	}while(questions_array[position]['status'] == 1);
 	return position;
 }

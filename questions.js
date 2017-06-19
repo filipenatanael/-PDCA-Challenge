@@ -190,4 +190,49 @@ var questions_array = {
     'answer': 'C',
     'status': '0'
   },
+  '39': {
+    'question': 'É simultaneamente fim e começo, pois após uma minuciosa apuração do que tenha causado erros anteriores, todo o ciclo PDCA é refeito com novas diretrizes e parâmetros.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '40': {
+    'question': 'É a realização das ações corretivas, que visam a correção das falhas encontradas durante o processo. Após a correção ser realizada, deve-se repetir o ciclo.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '41': {
+    'question': 'É nessa etapa que o ciclo reinicia dando continuidade ao processo de melhoria contínua, através da análise crítica do Ciclo PDCA que se estabelece um plano de ação definitivo para implementação das atividades a serem executadas após os estudos do ciclo.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '42': {
+    'question': 'Atuar corretiva- mente sobre a dife- rença identificada (caso houver); caso contrário, haverá a padronização e a conclusão, ações corretivas sobre os processos de planejamento, execução e auditoria; elimi- nação definitiva das causas, revisão das atividades e planejamento.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '43': {
+    'question': 'Na última etapa do método PDCA serão tomadas todas as medidas cabíveis para corrigir a rota e possíveis distorções que tenham desviado os resultados obtidos dos esperados, determinando causas.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '44': {
+    'question': 'Caso não haja nada a ser aperfeiçoado, a metodologia pode ser um pouco mais detalhada, a fim de por em prática possíveis melhorias, no momento de repetição de uma das fases.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '45': {
+    'question': 'Nesta etapa é preciso tomar as providências estipuladas nas avaliações e relatórios sobre os processos.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '46': {
+    'question': 'Se necessário, o gestor deve traçar novos planos de ação para melhoria da qualidade do procedimento, visando sempre a correção máxima de falhas e o aprimoramento dos processos da empresa.',
+    'answer': 'A',
+    'status': '0'
+  },
+  '47': {
+    'question': 'Caracterizado pela realização das ações corretivas, ou seja, a correção da falhas encontradas no passo anterior e pelo processo de padro-nização das ações executadas, cuja eficácia foi verificada anteriormente. É nessa fase que se inicia novamente o Ciclo levando ao processo de melhoria contínua.',
+    'answer': 'A',
+    'status': '0'
+  },
 }
