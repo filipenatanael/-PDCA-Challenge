@@ -160,7 +160,7 @@ function newGame() {
 	document.getElementById("loader").style.display = "none";
 	Players_Modal();
 	// creation of a 458x488 game
-	game = new Phaser.Game(v_width, v_width, Phaser.AUTO, "gameArea");
+	game = new Phaser.Game(500, 500, Phaser.AUTO, "gameArea");
 	game.state.add("PlayGame",playGame);
 	game.state.start("PlayGame");
 }
@@ -183,8 +183,8 @@ playGame.prototype = {
 		wheel = game.add.sprite(game.width / 2, game.width / 2, "wheel");
 		wheel.anchor.set(0.5);
 
-		wheel.width = 300;
-		wheel.height = 300;
+		wheel.width = 500;
+		wheel.height = 500;
 
 		var pin = game.add.sprite(game.width / 2, game.width / 2, "pin");
 		pin.anchor.set(0.5);
