@@ -30,8 +30,10 @@ function Players_Modal(){
 function setPlayers(){
 	//document.getElementById("input_player1");
 	player1['nickname'] = document.getElementById("input_player1").value;
+	player1['nickname'].str_texto.toUpperCase()
 	document.getElementById("span_player1").innerHTML = "<b>"+player1['nickname']+"<b>";
 	player2['nickname'] = document.getElementById("input_player2").value;
+	player2['nickname'].str_texto.toUpperCase()
 	document.getElementById("span_player2").innerHTML = "<b>"+player2['nickname']+"<b>";
 
 	max_questions = document.getElementById("select_rounds").value;
