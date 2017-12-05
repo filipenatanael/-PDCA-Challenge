@@ -2,26 +2,23 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="StyleSheet.css">
 
-	<script src="phaser.min.js"></script>
-	<script src = "questions.js"></script>
-	<script src = "game.js"></script>
-
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script src="js/phaser.min.js"></script>
+	<script src = "js/questions.js"></script>
+	<script src = "js/game.js"></script>
 	<style>
 	@font-face {
 		font-family: helveticaneue;
-		src: url('cityscape font.ttf');
+		src: url('fonts/cityscape font.ttf');
 	}
 	@font-face {
 		font-family: bulletho;
-		src: url('bulletho.ttf');
+		src: url('fonts/bulletho.ttf');
 	}
-
-
 	.jumbotron_Modificado {
 		padding-top: 10px;
 		padding-bottom: 30px;
@@ -31,9 +28,7 @@
 		text-align: center;
 		vertical-align: middle;
 		height: 50px;
-
 	}
-
 	</style>
 
 </head>
@@ -42,7 +37,6 @@
 	<div class="container">
 		<div class="jumbotron">
 			<h1 align='center'><font face="helveticaneue">DESAFIO PDCA</font></h1>
-
 		</div>
 	</div>
 
@@ -55,11 +49,9 @@
 				</div>
 			</div>
 			<div class="col-sm-6">
-
 				<div class="well well-sm">
 					<div class="row">
 						<div class="col-xs-12 col-md-12">
-
 							<div class="row rating-desc">
 								<div class="col-xs-2 col-md-2 text-right">
 									<strong>
@@ -73,36 +65,32 @@
 										<span class="sr-only" id="span_progress_p1">0%</span>
 									</div>
 								</div>
+							</div></br></br>
+							<!-- end 5 -->
+							<div class="col-xs-2 col-md-2 text-right">
+								<strong>
+									<span id="span_player2"></span>
+								</strong>
 							</div>
-						</br>
-					</br>
-					<!-- end 5 -->
-					<div class="col-xs-2 col-md-2 text-right">
-						<strong>
-							<span id="span_player2"></span>
-						</strong>
-					</div>
-					<div class="col-xs-9 col-md-10">
-						<div class="progress">
-							<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
-							aria-valuemin="0" aria-valuemax="100"  id="progress_p2" style="width: 0%">
-							<span class="sr-only" id="span_progress_p2">0%</span>
+							<div class="col-xs-9 col-md-10">
+								<div class="progress">
+									<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
+									aria-valuemin="0" aria-valuemax="100"  id="progress_p2" style="width: 0%">
+									<span class="sr-only" id="span_progress_p2">0%</span>
+								</div>
+							</div>
 						</div>
 					</div>
+					<!-- end row -->
 				</div>
 			</div>
-			<!-- end row -->
 		</div>
-	</div>
-</div>
+	</br></br>
 </br></br>
-</br></br>
-<img src="pdca.jpg" alt="Smiley face" height="300" width="100%">
-
+<img src="images/pdca.jpg" alt="Smiley face" height="300" width="100%">
 </div>
 </div>
 </div>
-
 <footer class="footer">
 </br></br>
 <div class="container">
@@ -111,9 +99,6 @@
 	</div>
 </div>
 </footer>
-
-
-
 
 <!-- Modal of Questions-->
 <div class="modal fade" id="myModal" role="dialog">
@@ -126,32 +111,24 @@
 			</div>
 			<div class="modal-body" id="div_hover">
 				<div id="conteudo">
+				</div></br>
+				<button id="btn_yes" type="button" onclick="responder(1)" class="btn btn-success">Corresponde</button>
+				<button id="btn_no" type="button" onclick="responder(2)" class="btn btn-danger">Não Corresponde</button></br></br>
 
+				<div class="alert alert-success"  id="hit_answer" style="display:none;">
+					<strong>Você acertou!</strong>  A resposta correspondem.
 				</div>
-				<!--
-				<p id="QA" onclick="responder()"></p>
-			-->
-		</br>
-		<button id="btn_yes" type="button" onclick="responder(1)" class="btn btn-success">Corresponde</button>
-		<button id="btn_no" type="button" onclick="responder(2)" class="btn btn-danger">Não Corresponde</button>
 
-	</br></br>
-	<div class="alert alert-success"  id="hit_answer" style="display:none;">
-		<strong>Você acertou!</strong>  A resposta correspondem.
+				<div class="alert alert-danger"  id="missed_answer" style="display:none;">
+					<strong>Você Errou!</strong> A resposta não corresponde.
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal" onclick="buttomToHide()">Fechar</button>
+			</div>
+		</div>
 	</div>
-
-	<div class="alert alert-danger"  id="missed_answer" style="display:none;">
-		<strong>Você Errou!</strong> A resposta não corresponde.
-	</div>
-
 </div>
-<div class="modal-footer">
-	<button type="button" class="btn btn-default" data-dismiss="modal" onclick="buttomToHide()">Fechar</button>
-</div>
-</div>
-</div>
-</div>
-
 
 <!-- Modal of Players-->
 <div class="modal fade" id="PlayersModal" role="dialog">
@@ -159,42 +136,34 @@
 		<!-- Modal content-->
 		<div class="modal-content">
 			<div class="modal-header">
-
 				<h4 class="modal-title">PDCA</h4>
 			</div>
 			<div class="modal-body">
-				<img src="pdcalogo.png" alt="Smiley face" height="150" width="100%">
-			</br></br>
-			<form>
-				<div class="form-group">
-					<label for="usr">Jogador 1:</label>
-					<input type="text" class="form-control" placeholder="Nickname" maxlength="8" id="input_player1" required>
-				</div>
-
-				<div class="form-group">
-					<label for="usr">Jogador 2:</label>
-					<input type="text" class="form-control" placeholder="Nickname" maxlength="8" id="input_player2" required>
-				</div>
-
-				<div class="form-group">
-					<label for="sel1">Qt. Perguntas:</label>
-					<select class="form-control" id="select_rounds">
-						<option>5</option>
-						<option>10</option>
-						<option>20</option>
-					</select>
-				</div>
-			</br>
-			<button type="button" class="btn btn-primary btn-block btn-lg" onclick="setPlayers()">Jogar</button>
-		</form>
-
+				<img src="images/pdcalogo.png" alt="Smiley face" height="150" width="100%"></br></br>
+				<form>
+					<div class="form-group">
+						<label for="usr">Jogador 1:</label>
+						<input type="text" class="form-control" placeholder="Nickname" maxlength="8" id="input_player1" required>
+					</div>
+					<div class="form-group">
+						<label for="usr">Jogador 2:</label>
+						<input type="text" class="form-control" placeholder="Nickname" maxlength="8" id="input_player2" required>
+					</div>
+					<div class="form-group">
+						<label for="sel1">Qt. Perguntas:</label>
+						<select class="form-control" id="select_rounds">
+							<option>5</option>
+							<option>10</option>
+							<option>20</option>
+						</select>
+					</div>
+				</br>
+				<button type="button" class="btn btn-primary btn-block btn-lg" onclick="setPlayers()">Jogar</button>
+			</form>
+		</div></br>
 	</div>
-</br>
-
 </div>
 </div>
-</div>
-
 
 <!-- Modal new Game-->
 <div class="modal fade" id="WinGameModal" role="dialog">
@@ -207,19 +176,13 @@
 				<div class="modal-body">
 					<div align="center"><h3>
 						<b><span id="Winner"></span></b>, você venceu o desafio!
-					</h3>
-				</br>
-				<img  src="winGamePlayer.png" alt="Smiley face" height="50%" width="50%">
-			</div>
-
-		</br>
-	</br>
-	<button type="button" class="btn btn-success btn-block btn-lg" data-dismiss="modal" onclick="Players_Modal()">Jogar novamente</button>
-
-</div>
-</br>
-</div>
-</div>
+					</h3></br>
+					<img  src="images/winGamePlayer.png" alt="Smiley face" height="50%" width="50%">
+				</div></br></br>
+				<button type="button" class="btn btn-success btn-block btn-lg" data-dismiss="modal" onclick="playersModal()">Jogar novamente</button>
+			</div></br>
+		</div>
+	</div>
 </div>
 
 

@@ -22,23 +22,20 @@ var player2 = {
 var max_points = 100;
 var max_questions;
 //------------------------------------------------------------------------
-//---- Function Players Modal ----
-function Players_Modal(){
+
+function playersModal(){
 	$("#PlayersModal").modal({backdrop: "static"});
 }
 
 function setPlayers(){
-	//document.getElementById("input_player1");
 	player1['nickname'] = document.getElementById("input_player1").value;
 	document.getElementById("span_player1").innerHTML = "<b>"+player1['nickname']+"<b>";
 	player2['nickname'] = document.getElementById("input_player2").value;
 	document.getElementById("span_player2").innerHTML = "<b>"+player2['nickname']+"<b>";
-
 	max_questions = document.getElementById("select_rounds").value;
 
 	if(player1['nickname'] != 0 || player2['nickname'] != 0){
 		$('#PlayersModal').modal('hide');
-
 	}
 }
 
@@ -46,7 +43,7 @@ function setPlayers(){
 
 function getRandomInt() {
 	do{
-		var position =  Math.floor(Math.random() * (48 - 1)) + 1;
+		let position =  Math.floor(Math.random() * (48 - 1)) + 1;
 	}while(questions_array[position]['status'] == 1);
 	return position;
 }
@@ -93,7 +90,6 @@ function AssignPoints(){
 	switch(turn) {
 		case 0:
 		//Case to player 1
-		//player1['points'] = parseInt(player1['points']) + 10;
 		player1['points'] = parseInt(player1['points']) + (max_points/max_questions);
 		if(player1['points'] == max_points){
 			document.getElementById("span_progress_p1").innerHTML =  player1['points'] + "%";
@@ -121,13 +117,11 @@ function AssignPoints(){
 
 }
 //------------------------------------------------------------------------
-
 //Atrubuit ganhador e resetar game
 function ResetGame(player){
 	$('#myModal').modal('hide');
 	document.getElementById("Winner").innerHTML =  player['nickname'];
 	$("#WinGameModal").modal({backdrop: "static"});
-
 	plays = 0;
 	player1['nickname'] = '';
 	player1['points'] = '';
@@ -152,14 +146,11 @@ function buttomToHide(){
 }
 
 //-------------------------------------------------------------------------
-//--------------------------------------------------------------------------
-
 function newGame() {
 	document.getElementById("players_progress").style.display = "block";
 	document.getElementById("pdca_logo").style.display = "block";
 	document.getElementById("loader").style.display = "none";
-	Players_Modal();
-	// creation of a 458x488 game
+	playersModal();
 	game = new Phaser.Game(500, 500, Phaser.AUTO, "gameArea");
 	game.state.add("PlayGame",playGame);
 	game.state.start("PlayGame");
@@ -174,9 +165,10 @@ window.onload = function() {
 var playGame = function(game){};
 playGame.prototype = {
 	preload: function(){
-		game.load.image("wheel", "wheel.png");
-		game.load.image("pin", "pin.png");
+		game.load.image("wheel", "images/wheel.png");
+		game.load.image("pin", "images/pin.png");
 	},
+
 	//funtion to be executed when the state is created
 	create: function(){
 		game.stage.backgroundColor = "#fff";
@@ -230,8 +222,6 @@ playGame.prototype = {
 		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 		Enable_Button();
 		setTimeout(function(){$("#myModal").modal();}, 1000);
-
 	}
-
 
 }

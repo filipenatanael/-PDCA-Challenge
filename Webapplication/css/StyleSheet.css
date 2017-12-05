@@ -1,6 +1,6 @@
 #div_hover { background-color: #98FB98; }
 
-@import url("http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+@import url("css/font-awesome.min.css");
 
 .panel-pricing {
   -moz-transition: all .3s ease;
@@ -36,8 +36,6 @@
   padding: 20px;
   margin: 0px;
 }
-
-
 
 #loader {
   position: absolute;
@@ -84,8 +82,6 @@
   from{ bottom:-100px; opacity:0 }
   to{ bottom:0; opacity:1 }
 }
-
-
 
 /* http://www.jquery2dotnet.com/ */
 /*body{ margin-top:20px;}*/
