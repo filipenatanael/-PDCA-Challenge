@@ -1,13 +1,13 @@
 var game;
 var wheel;
 var canSpin;
-var slices = 4;
-var slicePrizes = ["P","D","C","A"];
+const slices = 4;
+const slicePrizes = ["P","D","C","A"];
 var prize;
 var prizeText;
 var randomPosition;
-var v_width = window.screen.availWidth;
-var v_height = window.screen.availHeight;
+const v_width = window.screen.availWidth;
+const v_height = window.screen.availHeight;
 
 var plays = 0;
 var player1 = {
@@ -21,8 +21,8 @@ var player2 = {
 
 var max_points = 100;
 var max_questions;
-//------------------------------------------------------------------------
 
+//------------------------------------------------------------------------
 function playersModal(){
 	$("#PlayersModal").modal({backdrop: "static"});
 }
@@ -38,18 +38,17 @@ function setPlayers(){
 		$('#PlayersModal').modal('hide');
 	}
 }
-
 //------------------------------------------------------------------------
 
 function getRandomInt() {
 	do{
-		let position =  Math.floor(Math.random() * (48 - 1)) + 1;
+		var position =  Math.floor(Math.random() * (48 - 1)) + 1;
 	}while(questions_array[position]['status'] == 1);
 	return position;
 }
 
 function responder(event){
-	Disable_Button();
+	disableButton();
 	switch(event) {
 		case 1:
 		if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
@@ -82,8 +81,8 @@ function getPlayer(){
 		return player2;
 	}
 }
-//------------------------------------------------------------------------
 
+//------------------------------------------------------------------------
 //Atrubuir pontos ao jogadores
 function AssignPoints(){
 	var turn = plays%2;
@@ -129,8 +128,7 @@ function ResetGame(player){
 	player2['points'] = '';
 }
 
-
-function Disable_Button(){
+function disableButton(){
 	document.getElementById('btn_yes').disabled=true;
 	document.getElementById('btn_no').disabled=true;
 }
@@ -157,7 +155,7 @@ function newGame() {
 }
 
 window.onload = function() {
-	var myVar;
+	let myVar;
 	myVar = setTimeout(newGame, 1000);
 }
 
