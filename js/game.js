@@ -1,13 +1,13 @@
 var game;
 var wheel;
 var canSpin;
-var slices = 4;
-var slicePrizes = ["P","D","C","A"];
+const slices = 4;
+const slicePrizes = ["P","D","C","A"];
 var prize;
 var prizeText;
 var randomPosition;
-var v_width = window.screen.availWidth;
-var v_height = window.screen.availHeight;
+const v_width = window.screen.availWidth;
+const v_height = window.screen.availHeight;
 
 var plays = 0;
 var player1 = {
@@ -22,30 +22,25 @@ var player2 = {
 var max_points = 100;
 var max_questions;
 //------------------------------------------------------------------------
-//---- Function Players Modal ----
-function Players_Modal(){
+function PlayersModal(){
 	$("#PlayersModal").modal({backdrop: "static"});
 }
 
 function setPlayers(){
-	//document.getElementById("input_player1");
 	player1['nickname'] = document.getElementById("input_player1").value;
 	player1['nickname'].toUpperCase();
 	document.getElementById("span_player1").innerHTML = "<b>"+player1['nickname']+"<b>";
 	player2['nickname'] = document.getElementById("input_player2").value;
 	player2['nickname'].toUpperCase();
 	document.getElementById("span_player2").innerHTML = "<b>"+player2['nickname']+"<b>";
-
 	max_questions = document.getElementById("select_rounds").value;
 
 	if(player1['nickname'] != 0 || player2['nickname'] != 0){
 		$('#PlayersModal').modal('hide');
-
 	}
 }
 
 //------------------------------------------------------------------------
-
 function getRandomInt() {
 	do{
 		var position =  Math.floor(Math.random() * (48 - 1)) + 1;
@@ -54,7 +49,7 @@ function getRandomInt() {
 }
 
 function responder(event){
-	Disable_Button();
+	disableButton();
 	switch(event) {
 		case 1:
 		if(slicePrizes[prize] == questions_array[randomPosition]['answer']){
@@ -87,7 +82,6 @@ function getPlayer(){
 		return player2;
 	}
 }
-//------------------------------------------------------------------------
 
 //Atrubuir pontos ao jogadores
 function AssignPoints(){
@@ -95,7 +89,6 @@ function AssignPoints(){
 	switch(turn) {
 		case 0:
 		//Case to player 1
-		//player1['points'] = parseInt(player1['points']) + 10;
 		player1['points'] = parseInt(player1['points']) + (max_points/max_questions);
 		if(player1['points'] == max_points){
 			document.getElementById("span_progress_p1").innerHTML =  player1['points'] + "%";
@@ -117,19 +110,16 @@ function AssignPoints(){
 			document.getElementById("span_progress_p2").innerHTML =  player2['points'] + "%";
 			document.getElementById("progress_p2").style.width = player2['points'] + "%";
 		}
-
 		break;
 	}
 
 }
-//------------------------------------------------------------------------
 
 //Atrubuit ganhador e resetar game
 function ResetGame(player){
 	$('#myModal').modal('hide');
 	document.getElementById("Winner").innerHTML =  player['nickname'];
 	$("#WinGameModal").modal({backdrop: "static"});
-
 	plays = 0;
 	player1['nickname'] = '';
 	player1['points'] = '';
@@ -138,7 +128,7 @@ function ResetGame(player){
 }
 
 
-function Disable_Button(){
+function disableButton(){
 	document.getElementById('btn_yes').disabled=true;
 	document.getElementById('btn_no').disabled=true;
 }
@@ -153,22 +143,19 @@ function buttomToHide(){
 	document.getElementById("missed_answer").style.display = 'none';
 }
 
-//-------------------------------------------------------------------------
 //--------------------------------------------------------------------------
-
 function newGame() {
 	document.getElementById("players_progress").style.display = "block";
 	document.getElementById("pdca_logo").style.display = "block";
 	document.getElementById("loader").style.display = "none";
-	Players_Modal();
-	// creation of a 458x488 game
+	PlayersModal();
 	game = new Phaser.Game(v_width, v_width, Phaser.AUTO, "gameArea");
 	game.state.add("PlayGame",playGame);
 	game.state.start("PlayGame");
 }
 
 window.onload = function() {
-	var myVar;
+	let myVar;
 	myVar = setTimeout(newGame, 1000);
 }
 
@@ -232,8 +219,6 @@ playGame.prototype = {
 		document.getElementById('conteudo').innerHTML = questions_array[randomPosition]['question'];
 		Enable_Button();
 		setTimeout(function(){$("#myModal").modal();}, 1000);
-
 	}
-
 
 }
