@@ -10,5 +10,5 @@ The PDCA Cycle also called the Deming Cycle or Shewhart Cycle is a management to
 
 **[Screenshot] PDCA Challenge:**
 
-![alt text](https://github.com/filipenatanael/images-in-readme/blob/master/PDCA-Challenge/PDCA-Challenge-Screens.png)
+![alt text](https://raw.githubusercontent.com/filipenatanael/images-in-readme/master/PDCA-Challenge/PDCA-Challenge-Screens.png)
 
